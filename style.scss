@@ -15,7 +15,7 @@
   --light-red: rgb(250, 87, 87);
   --light-blue: rgb(83, 104, 223);
   --grayish-blue: rgb(98, 101, 119);
-  --light-gray: rgb(177, 177, 177);
+  --light-gray: rgba(177, 177, 177, 0.8);
   --very-dark-blue: rgb(37, 43, 70);
   --svg-bg-color: rgb(241 227 241);
 }
@@ -45,7 +45,7 @@ h1, h2, h3 {
   color: black;
 }
 
-.page-header, .introductory-section {
+.page-header, main > section:not(.features-section) {
   margin: 0px auto;
   padding: 5vh 5vw;
   max-width: 1400px;
@@ -57,7 +57,7 @@ h1, h2, h3 {
 @mixin button($color) {
   display: inline-block;
   border: 2px solid $color;
-  padding: 10px 32px;
+  padding: 8px 32px;
 
   box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.3);
 
@@ -68,6 +68,7 @@ h1, h2, h3 {
 
   color: white;
   font-weight: 500;
+  text-align: center;
 
   transition: 150ms background-color linear, 150ms color linear;
 
@@ -228,7 +229,7 @@ h1, h2, h3 {
     display: grid;
     grid-template-columns: repeat(3, 100%);
 
-    margin-top: 3vh; 
+    margin: 3vh 0px 4vh; 
 
     transition: 300ms transform ease-in-out;
 
@@ -237,7 +238,7 @@ h1, h2, h3 {
       border-radius: 12px;
     }
     
-    section {
+    &__item {
       margin: 0px auto 10vh;
       display: grid;
       grid-template-columns: 1fr 55%;
@@ -271,6 +272,162 @@ h1, h2, h3 {
     }
   }
 }
+
+.download-section {
+  &__title {
+    text-align: center;
+  }
+
+  &__paragraph {
+    margin: 4vh auto 8vh;
+    width: 50%;
+
+    text-align: center;
+  }
+
+  &__cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 8vw;    // !
+
+    margin-bottom: 20vh;
+  }
+
+  &__card {
+    border-radius: 10px;
+
+    box-shadow: 0px 20px 20px var(--light-gray);
+
+    &:nth-child(2) {
+      transform: translateY(40px);
+    }
+
+    &:nth-child(3) {
+      transform: translateY(80px);
+    }
+
+    &__logo {
+      display: block;
+      margin: 8vh auto;
+    }
+
+    h3, p {
+      text-align: center;
+    }
+
+    h3 {
+      margin: 5vh 2vw 2vh;
+
+      font-size: 20px;
+    }
+
+    p {
+      margin: 0px 2vw 4vh;
+    }
+
+    &__dots {
+      width: 100%;
+    }
+
+    div {
+      padding: 1vw;
+    }
+
+    a {
+      width: 100%;
+      
+      @include button(var(--light-blue))
+    }
+  }
+}
+
+.questions-section {
+  &__title {
+    text-align: center;
+  }
+
+  &__paragraph {
+    margin: 5vh auto 8vh;
+    width: 50%;
+
+    text-align: center;
+  }
+
+  &__accordion-container {
+    margin: 0px auto;
+    width: 50%;
+
+    list-style: none;
+
+    button {
+      display: flex;
+      justify-content: space-between;
+
+      border-top: 1px solid var(--light-gray);
+      padding: 4vh 0px;  // !
+      width: 100%;
+
+      background-color: transparent;
+  
+      font-weight: 500;
+      font-size: 20px;
+
+      span {
+        color: black;
+
+        transition: 150ms color linear;
+      }
+
+      svg {
+        transition: 150ms transform ease-in-out;
+      }
+
+      @media (hover: hover) {
+        &:hover span {
+          color: var(--light-red);
+          stroke: var(--light-red)
+        }
+      }
+
+      @media (hover: none) {
+        &:active span {
+          color: var(--light-red);
+          stroke: var(--light-red)
+        }
+      }
+    }
+
+    p {
+      height: 0px;
+
+      overflow: hidden;
+
+      transition: 200ms height ease-in-out;
+    }
+
+    p:after {   // I created this pseudo-element to add the spacing at the bottom of the paragraph, because the padding wasn't  working properly on the <p>
+      content: '';
+
+      display: block;
+      height: 4vh;    // !
+    }
+  }
+
+  &__more-info {
+    display: block !important;
+    margin: 2vh auto 7vh;
+    
+    @include button(var(--light-blue))
+  }
+}
+
+
+// Javascript's classes
+
+.rotate-arrow {
+  transform: rotate(-180deg);
+}
+
 
 // At-rules
 
