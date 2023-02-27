@@ -101,6 +101,12 @@ function hideInputLabel() {
   formInputLabelEL.classList.add('hide-label')
 }
 
+function showInputLabel() {
+  const inputValue = formInputEL.value
+
+  if (!inputValue) formInputLabelEL.classList.remove('hide-label')
+}
+
 function verifyInput() {
   const inputValue = formInputEL.value
 
@@ -122,6 +128,8 @@ accordionButtonsELs.forEach((accordionButonEL, accordionIndex) => accordionButon
 formEL.addEventListener('submit', verifyForm)
 
 formInputEL.addEventListener('focus', hideInputLabel)
+
+formInputEL.addEventListener('blur', showInputLabel)
 
 formInputEL.addEventListener('input', verifyInput)
 
