@@ -261,6 +261,7 @@ h1, h2, h3 {
   display: grid;
   grid-template-columns: repeat(3, 100%);
   margin: 3vh 0px 4vh;
+  overflow: hidden;
   transition: 300ms transform ease-in-out;
 }
 .features-section__carousel svg:nth-child(1) {
@@ -678,7 +679,7 @@ svg.show-error-svg {
 }
 
 @media (pointer: coarse) {
-  button {
+  button, a {
     cursor: default;
   }
 }
