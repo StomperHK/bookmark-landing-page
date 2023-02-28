@@ -22,6 +22,10 @@ html {
   overflow-x: hidden;
 }
 
+body {
+  opacity: 0;
+}
+
 input {
   outline: none;
 }
@@ -641,6 +645,10 @@ h1, h2, h3 {
   width: 148px;
 }
 
+.show-content {
+  animation: show 300ms 1000ms linear forwards;
+}
+
 .activate-hamburger-menu.activate-hamburger-menu {
   transform: translateX(0px);
 }
@@ -920,6 +928,11 @@ svg.show-error-svg {
 @media (max-height: 560px) {
   .features-section__carousel {
     margin-top: 7vh;
+  }
+}
+@keyframes show {
+  to {
+    opacity: 1;
   }
 }
 
