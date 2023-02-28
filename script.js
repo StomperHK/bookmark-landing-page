@@ -123,6 +123,10 @@ function verifyInput() {
   disableErrorMessage()
 }
 
+function showPage() {
+  document.body.classList.add('show-content')
+}
+
 
 hamburgerOpenerButtonEL.addEventListener('click', toggleHamburguerMenu)
 
@@ -141,3 +145,5 @@ formInputEL.addEventListener('blur', showInputLabel)
 formInputEL.addEventListener('input', verifyInput)
 
 window.addEventListener('resize', () => changeCarouselTab(false, false))
+
+window.addEventListener('load', showPage)
