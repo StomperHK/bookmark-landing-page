@@ -23,31 +23,26 @@ function toggleHamburguerMenu() {
   hamburgerMenuEL.classList.toggle('activate-hamburger-menu')
 }
 
-function highlightSelectedTab() {
-  const highlightedTab = tabsELs[tabIndexGlobal]
-
+function highlightSelectedTab(selectedTabEL) {
   tabsELs.forEach(tabEL => {
     tabEL.classList.remove('features-section__tabs__tab--active')
     tabEL.ariaSelected = "false"
   })
 
-  highlightedTab.classList.add('features-section__tabs__tab--active')
-  highlightedTab.ariaSelected = "true"
+  selectedTabEL.classList.add('features-section__tabs__tab--active')
+  selectedTabEL.ariaSelected = "true"
 }
 
-function changeCarouselTab(tabIndex) {
-  const verticalTabWidth = tabsVerticalBarEL.clientWidth
+function changeCarouselTab(selectedTabEL, tabIndex) {
   const featuresCarouselWidth = featuresCarouselEL.clientWidth
 
   if (tabIndex !== false) {   // checks if it's being given a tabIndex value
     tabIndexGlobal = tabIndex
   }
 
-  tabsVerticalBarEL.style.transform = `translateX(${verticalTabWidth * tabIndexGlobal}px)`
-
   featuresCarouselEL.style.transform = `translateX(-${featuresCarouselWidth * tabIndexGlobal}px)`
 
-  highlightSelectedTab()
+  if (selectedTabEL) highlightSelectedTab(selectedTabEL)   
 }
 
 function toggleAccordion(accordionButonEL, accordionIndex) {
@@ -133,7 +128,7 @@ hamburgerOpenerButtonEL.addEventListener('click', toggleHamburguerMenu)
 
 hamburgerCloserButtonEL.addEventListener('click', toggleHamburguerMenu)
 
-tabsELs.forEach((tabEL, tabIndex) => tabEL.addEventListener('click', () => changeCarouselTab(tabIndex)))
+tabsELs.forEach((tabEL, tabIndex) => tabEL.addEventListener('click', () => changeCarouselTab(tabEL, tabIndex)))
 
 accordionButtonsELs.forEach((accordionButonEL, accordionIndex) => accordionButonEL.addEventListener('click', () => toggleAccordion(accordionButonEL, accordionIndex)))
 
@@ -145,4 +140,4 @@ formInputEL.addEventListener('blur', showInputLabel)
 
 formInputEL.addEventListener('input', verifyInput)
 
-window.addEventListener('resize', () => changeCarouselTab(false))
+window.addEventListener('resize', () => changeCarouselTab(false, false))
