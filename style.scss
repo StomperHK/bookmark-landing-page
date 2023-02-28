@@ -21,10 +21,6 @@
   --svg-bg-color: rgb(241 227 241);
 }
 
-html {
-  overflow-x: hidden;
-}
-
 body {
   opacity: 0;
 }
@@ -193,6 +189,8 @@ h1, h2, h3 {
 }
 
 .features-section {
+  overflow: hidden;
+
   &__wrapper {
     margin: 0px auto;
     padding: 5vh 5vw 3vh;
@@ -284,8 +282,6 @@ h1, h2, h3 {
     grid-template-columns: repeat(3, 100%);
 
     margin: 3vh 0px 4vh;
-
-    overflow: hidden;
 
     transition: 300ms transform ease-in-out;
 
@@ -1041,7 +1037,7 @@ svg.show-error-svg {
     }
 
     button {
-      margin-top: 5vh;
+      margin-top: 40px;
       width: 100%;
     }
   }
