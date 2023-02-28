@@ -1,3 +1,7 @@
+const hamburgerMenuEL = document.querySelector('[data-js="page-header__hamburguer-menu"]')
+const hamburgerOpenerButtonEL = document.querySelector('[data-js="page-header__hamburger"]')
+const hamburgerCloserButtonEL = document.querySelector('[data-js="page-header__hamburguer-menu__close-button"]')
+ 
 const tabsContainerEL = document.querySelector('[data-js="features-section__tabs"]')
 const tabsELs = Array.from(tabsContainerEL.querySelectorAll('button'))
 const tabsVerticalBarEL = document.querySelector('[data-js="features-section__tabs__vertical-bar"]')
@@ -14,6 +18,10 @@ const formInputLabelEL = document.querySelector('[data-js="stay-up-to-date-secti
 const formInputErrorSvgEL = document.querySelector('[data-js="stay-up-to-date-section__input-wrapper__svg"]')
 const formInputErrorMessage = document.querySelector('[data-js="stay-up-to-date-section__input-wrapper__input-error-message"]')
 
+
+function toggleHamburguerMenu() {
+  hamburgerMenuEL.classList.toggle('activate-hamburger-menu')
+}
 
 function highlightSelectedTab() {
   const highlightedTab = tabsELs[tabIndexGlobal]
@@ -120,6 +128,10 @@ function verifyInput() {
   disableErrorMessage()
 }
 
+
+hamburgerOpenerButtonEL.addEventListener('click', toggleHamburguerMenu)
+
+hamburgerCloserButtonEL.addEventListener('click', toggleHamburguerMenu)
 
 tabsELs.forEach((tabEL, tabIndex) => tabEL.addEventListener('click', () => changeCarouselTab(tabIndex)))
 
