@@ -339,8 +339,9 @@ h1, h2, h3 {
 
   &__cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, 250px);
     align-items: end;
+    justify-content: center;
     grid-gap: 50px;
 
     margin-bottom: 80px;
@@ -748,6 +749,18 @@ svg.show-error-svg {
   }
 }
 
+@media (max-width: 961px) {
+  .download-section {
+    &__cards-container {
+      margin-bottom:20px;
+    }
+
+    &__card:nth-child(2), &__card:nth-child(3) {
+      transform: none;
+    }
+  }
+}
+
 @media (max-width: 915px) {
   .download-section__cards-container {
     grid-gap: 30px;
@@ -792,7 +805,7 @@ svg.show-error-svg {
     }
 
     h1, &__paragraph {
-      text-align: center;
+      text-align: center; 
     }
 
     &__flex {
@@ -800,6 +813,7 @@ svg.show-error-svg {
       justify-content: space-evenly;
 
       margin-top: 5vh;
+      margin-bottom: 20px;
     }
   }
 
@@ -827,16 +841,6 @@ svg.show-error-svg {
     button {
       display: block;
       margin: 0px auto;
-    }
-  }
-
-  .download-section {
-    &__cards-container {
-      margin-bottom:20px;
-    }
-
-    &__card:nth-child(2), &__card:nth-child(3) {
-      transform: none;
     }
   }
 }
@@ -892,7 +896,7 @@ svg.show-error-svg {
     }
 
     &__hamburguer-menu {
-      padding: 40px;
+      padding: 30px 40px;
       width: 100%;
       height: 100vh;
 
