@@ -1,6 +1,6 @@
 # Bookmark Landing Page
 
-This site was made with the design provided by Front-End Mentor (https://www.frontendmentor.io/challenges/bookmark-landing-page-5d0b588a9edda32581d29158/hub).
+This site was made with the design provided by Front-End Mentor (https://www.frontendmentor.io/challenges/bookmark-landing-page-5d0b588a9edda32581d29158).
 
 ## Site Built With:
 
