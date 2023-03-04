@@ -177,6 +177,10 @@ h1, h2, h3 {
   &__svgs-container {
     position: relative;
   }
+
+  img {
+    width: 100%;
+  }
   
   &__ameba-svg {
     width: 100%;
@@ -285,9 +289,8 @@ h1, h2, h3 {
 
     transition: 300ms transform ease-in-out;
 
-    svg:nth-child(1) {
-      background-color: var(--svg-bg-color);
-      border-radius: 8px;
+    img {
+      width: 100%;
     }
     
     &__item {
@@ -303,7 +306,7 @@ h1, h2, h3 {
       div:nth-child(1) {
         position: relative;
 
-        svg:last-child {
+        img:last-child {
           width: 100%;
 
           position: absolute;
@@ -312,6 +315,10 @@ h1, h2, h3 {
           z-index: -1;
           transform: translate(-22%, -10%);
         }
+      }
+
+      &__special-image {
+        transform: translate(-24%, 0%) !important;
       }
     }
 
@@ -818,10 +825,10 @@ svg.show-error-svg {
   }
 
   .features-section__carousel {
-    margin-top: 7vh;
+    margin-top: 3vh;
 
     &__item {
-      grid-gap: 60px;
+      grid-gap: 40px;
       grid-template-columns: 1fr;
   
       div:first-child {
