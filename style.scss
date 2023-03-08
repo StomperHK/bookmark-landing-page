@@ -176,6 +176,24 @@ h1, h2, h3 {
 
   &__svgs-container {
     position: relative;
+
+    &::before {
+      content: '';
+
+      display: block;
+      width: 90%;
+      height: 70%;
+
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      transform: translateX(5vw);
+      z-index: -1;
+
+      background-color: var(--light-blue);
+
+      border-radius: 60px 0px 0px 60px;
+    }
   }
 
   img {
@@ -197,7 +215,7 @@ h1, h2, h3 {
 
   &__wrapper {
     margin: 0px auto;
-    padding: 5vh 5vw 3vh;
+    padding: 6vh 5vw;
     max-width: 1400px;
   }
 
@@ -288,10 +306,6 @@ h1, h2, h3 {
     margin: 3vh 0px 4vh;
 
     transition: 300ms transform ease-in-out;
-
-    img {
-      width: 100%;
-    }
     
     &__item {
       margin: 0px auto 2vh;
@@ -303,23 +317,40 @@ h1, h2, h3 {
       padding: 0px 5vw;
       max-width: 1400px;
 
-      div:nth-child(1) {
+      &__blue-shadow-placeholder {
         position: relative;
 
-        img:last-child {
-          width: 100%;
+        &::before {
+          content: "";
+
+          display: block;
+          width: calc(110% + 5vw);
+          height: 85%;
 
           position: absolute;
-          top: 0px;
-          left: 0px;
+          bottom: 0px;
           z-index: -1;
-          transform: translate(-22%, -10%);
+          transform: translate(-5vw, 20px);
+
+          background-color: var(--light-blue);
+
+          border-radius: 0px 60px 60px 0px;
+        }
+
+        img {
+          width: 90%;
+
+          transform: translateY(-20px);
         }
       }
 
-      &__special-image {
-        transform: translate(-24%, 0%) !important;
+      &__blue-shadow-placeholder-bigger::before {
+        height: 100%;
       }
+
+      img.features-section__carousel__item__bigger-image {    // I'm using this selector to get more specificity
+        width: 100%;
+      } 
     }
 
     p {
@@ -735,6 +766,16 @@ svg.show-error-svg {
 
 // width-based query
 
+@media (min-width: 1401px) {
+  .introductory-section__svgs-container::before {
+    border-radius: 60px 20px 20px 60px;
+  }
+
+  .features-section__carousel__item__blue-shadow-placeholder::before {
+    border-radius: 20px 60px 60px 20px;
+  }
+}
+
 @media (max-width: 1075px) {
   .stay-up-to-date-section__grid-container {
     width: 70%;
@@ -778,29 +819,12 @@ svg.show-error-svg {
   }
 }
 
-@media (max-width: 790px) {
-  .features-section__tabs {
-    width: 100%;
-  }
-  
-  .download-section__card {
-    &__logo {
-      width: 80px;
-    }
-
-    p {
-      margin-bottom: 10px;
-    }
-  }
-}
-
-@media (max-width: 734px) {
+@media (max-width: 900px) {
   .page-header {
     padding-bottom: 5vh;
   }
 
   .introductory-section {
-    justify-items: center;
     grid-template-columns: 1fr;
 
     & > div:first-child {
@@ -808,7 +832,15 @@ svg.show-error-svg {
     }
 
     &__svgs-container {
-      width: 60%;
+      &::before {
+        height: 90%;
+      }
+
+      img {
+        display: block;
+        margin: 0px auto;
+        width: 60%;
+      }
     }
 
     h1, &__paragraph {
@@ -830,11 +862,22 @@ svg.show-error-svg {
     &__item {
       grid-gap: 40px;
       grid-template-columns: 1fr;
-  
-      div:first-child {
-        margin: 0px auto;
-        width: 60%;
+
+      &__blue-shadow-placeholder::before {
+        width: calc(90% + 5vw);
+        transform: translateX(-5vw);
       }
+  
+      img {
+        display: block;
+        margin: 0px auto;
+        width: 50%;
+      }
+
+      img.features-section__carousel__item__bigger-image {
+        width: 60%;
+        transform: translateY(-30px);
+      } 
     }
 
     h3 {
@@ -848,6 +891,22 @@ svg.show-error-svg {
     button {
       display: block;
       margin: 0px auto;
+    }
+  }
+}
+
+@media (max-width: 790px) {
+  .features-section__tabs {
+    width: 100%;
+  }
+  
+  .download-section__card {
+    &__logo {
+      width: 80px;
+    }
+
+    p {
+      margin-bottom: 10px;
     }
   }
 }
@@ -888,7 +947,6 @@ svg.show-error-svg {
         margin-bottom: 20px;
         border-bottom: 1px solid var(--light-gray);
       }
-      
     }
 
     &__link-special {
@@ -1025,11 +1083,36 @@ svg.show-error-svg {
 
 @media (max-width: 477px) {
   .introductory-section__svgs-container {
-    width: 90%;
+    
+    &::before {
+      border-radius: 40px 0px 0px 40px;
+    }
+
+    img {
+      width: 90%;
+    }
   }
 
-  .features-section__carousel__item div:first-child {
-    width: 80%;
+  .features-section__carousel__item  {
+    &__blue-shadow-placeholder::before {
+      width: calc(80% + 5vw);
+      height: 80%;
+
+      border-radius: 0px 20px 20px 0px;
+    }
+
+    &__blue-shadow-placeholder-bigger::before {
+      height: 90%;
+    }
+    
+    img {
+      width: 70%;
+    }
+
+    img.features-section__carousel__item__bigger-image {
+      width: 80%;
+      transform: translateY(-30px);
+    }
   }
 
   .stay-up-to-date-section {
@@ -1048,7 +1131,7 @@ svg.show-error-svg {
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 432px) {
   .introductory-section__flex {
     display: block;
 
